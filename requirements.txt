@@ -1,0 +1,2 @@
+kubernetes~=17.17
+kopf~=1.31

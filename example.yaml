@@ -1,0 +1,19 @@
+---
+apiVersion: k8s.lanvstn.be/v1alpha1
+kind: NodeTaintRule
+metadata:
+  name: test-nodetaint-spots
+spec:
+  matchLabels:
+    node.kubernetes.io/lifecycle: spot
+  wantedTaints:
+    - effect: NoSchedule
+      key: randomtaint
+      value: helloworld
+  unwantedTaints:
+    - effect: NoSchedule
+      key: kubernetes.azure.com/scalesetpriority
+      value: spot
+    - effect: NoSchedule
+      key: randomtaint
+      value: helloworld
